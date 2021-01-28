@@ -103,13 +103,14 @@ listado.map(function(val){
 });
 
 
-//4. Impresión listado de pacientes que se atendieron en centro médico
-document.write('<br><br>'); //Espacio
-document.write('<p><b>EJERCICIO 4</b></p>'); //Titulo
+//5. Modificación de previsión de Salud
+document.write('<p><b>EJERCICIO 5</b></p>'); //Titulo
 
-let listado = radiologia.concat(dental, traumatologia);
-listado.map(function(val){
-    document.write(`${val.paciente}<br><br>`)
+let listadoPrevision = radiologia.concat(dental, traumatologia);
+listadoPrevision.map(function(el){
+    if(el.prevision === "FONASA") el.prevision = "ISAPRE"
+    else if(el.prevision === "ISAPRE") el.prevision = "FONASA"
+    document.write(`${el.prevision} ; ${el.paciente} ; ${el.rut}<br><br>`)
 });
 
 </script>
