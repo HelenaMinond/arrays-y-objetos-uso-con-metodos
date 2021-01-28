@@ -7,7 +7,7 @@
     <title>Centro Médico Ñuñoa</title>
 </head>
 <script>
-document.write('<p>Estadisticas Centro Médico Ñuñoa</p>');
+document.write('<p><b>Estadisticas Centro Médico Ñuñoa</b></p>');
 
 let radiologia = [
     {hora: '11:00', especialista: 'IGNACIO SCHULZ', paciente: 'FRANCISCA ROJAS', rut: '9878782-1', prevision: 'FONASA'},
@@ -65,22 +65,24 @@ let horasIncorporadas = [
 ];
 
 horasIncorporadas.forEach(function(val){
-    traumatologia.push(val.hora, val.especialista, val.paciente, val.rut, val.prevision); 
+    traumatologia.push(`${val.paciente} <br><br>`); 
 });
 document.write(traumatologia);
 
 
 //2. Eliminacion de primer y ultimo elemento de radiologia
-document.write('<br><br>'); //Espacio
+document.write('<br>'); //Espacio
 document.write('<p><b>EJERCICIO 2</b></p>'); //Titulo
 
 radiologia.shift(); //Primer elemento
 radiologia.pop(); //Ultimo elemento
-document.write(radiologia);
+radiologia.forEach(function(val){
+    document.write(`${val.paciente} <br><br>`)
+});
 
 
 //3. Impresión de datos de consultas médicas de Dental
-document.write('<br><br>'); //Espacio
+document.write('<br>'); //Espacio
 document.write('<p><b>EJERCICIO 3</b></p>'); //Titulo
 
 document.write(`
