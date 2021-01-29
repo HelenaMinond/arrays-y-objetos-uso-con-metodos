@@ -55,10 +55,16 @@ let horasIncorporadas = [
     {hora: '12:00', especialista: 'MATIAS ARAVENA', paciente: 'SUSANA POBLETE', rut: '14345656-6', prevision: 'FONASA'}
 ];
 
+/*
 horasIncorporadas.forEach(function(val){
     traumatologia.push(`${val.paciente} <br><br>`); 
 });
 document.write(traumatologia);
+*/
+Array.prototype.push.apply(traumatologia, horasIncorporadas);
+traumatologia.forEach(function(val){
+    document.write(`Paciente: ${val.paciente} <br><br>`);
+});
 
 
 //2. Eliminacion de primer y ultimo elemento de radiologia
@@ -68,7 +74,7 @@ document.write('<p><b>EJERCICIO 2</b></p>'); //Titulo
 radiologia.shift(); //Primer elemento
 radiologia.pop(); //Ultimo elemento
 radiologia.forEach(function(val){
-    document.write(`${val.paciente} <br><br>`)
+    document.write(`Paciente: ${val.paciente} <br><br>`)
 });
 
 
@@ -82,24 +88,25 @@ ${dental[1].hora} - ${dental[1].especialista} - ${dental[1].paciente} - ${dental
 ${dental[2].hora} - ${dental[2].especialista} - ${dental[2].paciente} - ${dental[2].rut} - ${dental[2].prevision} <br><br>
 ${dental[3].hora} - ${dental[3].especialista} - ${dental[3].paciente} - ${dental[3].rut} - ${dental[3].prevision} <br><br>
 ${dental[4].hora} - ${dental[4].especialista} - ${dental[4].paciente} - ${dental[4].rut} - ${dental[4].prevision} <br><br>
-${dental[5].hora} - ${dental[5].especialista} - ${dental[5].paciente} - ${dental[5].rut} - ${dental[5].prevision}
+${dental[5].hora} - ${dental[5].especialista} - ${dental[5].paciente} - ${dental[5].rut} - ${dental[5].prevision} 
 `);
 
 
 //4. Impresión listado de pacientes que se atendieron en centro médico
-document.write('<br><br>'); //Espacio
+document.write('<br><br><br>'); //Espacio
 document.write('<p><b>EJERCICIO 4</b></p>'); //Titulo
 
-let listado = radiologia.concat(dental, traumatologia);
+let listado = radiologia.concat(traumatologia, dental);
 listado.map(function(val){
     document.write(`${val.paciente}<br><br>`)
 });
 
 
 //5. Modificación de previsión de Salud
+document.write('<br>'); //Espacio
 document.write('<p><b>EJERCICIO 5</b></p>'); //Titulo
 
-let listadoPrevision = radiologia.concat(dental, traumatologia);
+let listadoPrevision = radiologia.concat(traumatologia, dental);
 listadoPrevision.map(function(el){
     if(el.prevision === "FONASA") el.prevision = "ISAPRE"
     else if(el.prevision === "ISAPRE") el.prevision = "FONASA"
