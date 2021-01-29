@@ -55,12 +55,6 @@ let horasIncorporadas = [
     {hora: '12:00', especialista: 'MATIAS ARAVENA', paciente: 'SUSANA POBLETE', rut: '14345656-6', prevision: 'FONASA'}
 ];
 
-/*
-horasIncorporadas.forEach(function(val){
-    traumatologia.push(`${val.paciente} <br><br>`); 
-});
-document.write(traumatologia);
-*/
 Array.prototype.push.apply(traumatologia, horasIncorporadas);
 traumatologia.forEach(function(val){
     document.write(`Paciente: ${val.paciente} <br><br>`);
